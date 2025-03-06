@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="uk">
+		<meta charset="UTF-8">
+		<title>Траєкторія руху (Canvas)</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<main class="container">
+			<canvas id="trajectoryCanvas" width="600" height="500"></canvas>
+
+			<div class="inputs-container">
+				<div class="input-group">
+					<label for="x0">x0:</label>
+					<input id="x0" type="number" value="0">
+				</div>
+				<div class="input-group">
+					<label for="y0">y0:</label>
+					<input id="y0" type="number" value="0">
+				</div>
+				<div class="input-group">
+					<label for="angle">Кут:</label>
+					<input id="angle" type="number" value="45">
+				</div>
+				<div class="input-group">
+					<label for="speed">Початкова швидкість:</label>
+					<input id="speed" type="number" value="50">
+				</div>
+				<div class="input-group">
+					<label for="acceleration">Прискорення:</label>
+					<input id="acceleration" type="number" value="0">
+				</div>
+				<div class="input-group">
+					<label for="color">Колір траєкторії:</label>
+					<input id="color" type="color">
+				</div>
+				<button id="drawButton">Побудувати траєкторію</button>
+				<button id="clearButton">Очистити</button>
+			</div>
+
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+
+</html>

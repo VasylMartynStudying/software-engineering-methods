@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="uk">
+		<meta charset="UTF-8">
+		<title>Траєкторія руху (D3.js)</title>
+		<link rel="stylesheet" href="styles.css">
+
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+	</head>
+
+	<body>
+		<main class="container">
+			<svg id="trajectorySvg" width="600" height="500"></svg>
+
+			<div class="inputs-container">
+				<div class="input-group">
+					<label for="x0">x0:</label>
+					<input type="number" id="x0" value="0">
+				</div>
+				<div class="input-group">
+					<label for="y0">y0:</label>
+					<input type="number" id="y0" value="0">
+				</div>
+				<div class="input-group">
+					<label for="angle">Кут:</label>
+					<input type="number" id="angle" value="45">
+				</div>
+				<div class="input-group">
+					<label for="speed">Початкова швидкість:</label>
+					<input type="number" id="speed" value="50">
+				</div>
+				<div class="input-group">
+					<label for="acceleration">Прискорення:</label>
+					<input type="number" id="acceleration" value="0">
+				</div>
+				<div class="input-group">
+					<label for="color">Колір траєкторії:</label>
+					<input type="color" id="color" value="#ff0000">
+				</div>
+				<button id="drawButton">Побудувати траєкторію</button>
+				<button id="clearButton">Очистити</button>
+			</div>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+
+</html>
