@@ -2,7 +2,7 @@ const svg = d3.select("#trajectorySvg");
 const width = Number.parseFloat(svg.attr("width"));
 const height = Number.parseFloat(svg.attr("height"));
 
-function drawTrajectoryD3() {
+function drawTrajectory() {
   const x0 = Number.parseFloat(document.getElementById("x0").value);
   const y0 = Number.parseFloat(document.getElementById("y0").value);
   const angle = Number.parseFloat(document.getElementById("angle").value);
@@ -15,6 +15,7 @@ function drawTrajectoryD3() {
   const angleRad = (angle * Math.PI) / 180;
   const dirX = Math.cos(angleRad);
   const dirY = Math.sin(angleRad);
+
   const points = [];
   const startX = x0;
   const startY = height - y0;
@@ -41,7 +42,6 @@ function drawTrajectoryD3() {
     points.push({ x: svgX, y: svgY });
   }
 
-
   const lineGenerator = d3
     .line()
     .x((d) => d.x)
@@ -58,8 +58,55 @@ function drawTrajectoryD3() {
 
 document
   .getElementById("drawButton")
-  .addEventListener("click", drawTrajectoryD3);
+  .addEventListener("click", drawTrajectory);
 
 document.getElementById("clearButton").addEventListener("click", () => {
   svg.selectAll("path").remove();
 });
+
+function drawGrid() {
+  const svg = d3.select("#trajectorySvg");
+  const width = parseFloat(svg.attr("width"));
+  const height = parseFloat(svg.attr("height")); 
+  const gridSize = 50; 
+
+  for (let y = gridSize; y < height; y += gridSize) {
+    svg
+      .append("line") 
+      .attr("x1", 0) 
+      .attr("y1", y)
+      .attr("x2", width) 
+      .attr("y2", y) 
+      .attr("stroke", "#ddd") 
+      .attr("stroke-width", 1) 
+
+    svg
+      .append("text")
+      .attr("x", 5) 
+      .attr("y", y - 5) 
+      .attr("fill", "#555")
+      .attr("font-size", "12px")
+      .text(height - y);
+  }
+
+  for (let x = gridSize; x < width; x += gridSize) {
+    svg
+      .append("line") 
+      .attr("x1", x) 
+      .attr("y1", 0)
+      .attr("x2", x)
+      .attr("y2", height)
+      .attr("stroke", "#ddd")
+      .attr("stroke-width", 1)
+
+    svg
+      .append("text")
+      .attr("x", x + 2)
+      .attr("y", height - 5)
+      .attr("fill", "#555")
+      .attr("font-size", "12px")
+      .text(x);
+  }
+}
+
+drawGrid();

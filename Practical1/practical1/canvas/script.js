@@ -1,6 +1,29 @@
 const canvas = document.getElementById("trajectoryCanvas");
 const canvasContext = canvas.getContext("2d");
 
+function drawGrid() {
+  canvasContext.strokeStyle = "#ddd";
+  canvasContext.lineWidth = 0.5;
+  canvasContext.font = "12px font-size";
+  canvasContext.fillStyle = "#555";
+
+  for (let x = 0; x <= canvas.width; x += 50) {
+    canvasContext.beginPath();
+    canvasContext.moveTo(x, 0);
+    canvasContext.lineTo(x, canvas.height);
+    canvasContext.stroke();
+    canvasContext.fillText(x, x + 2, canvas.height - 2);
+  }
+
+  for (let y = 0; y <= canvas.height; y += 50) {
+    canvasContext.beginPath();
+    canvasContext.moveTo(0, y);
+    canvasContext.lineTo(canvas.width, y);
+    canvasContext.stroke();
+    canvasContext.fillText(canvas.height - y, 2, y - 2);
+  }
+}
+
 function drawTrajectory() {
   const x0 = Number.parseFloat(document.getElementById("x0").value);
   const y0 = Number.parseFloat(document.getElementById("y0").value);
@@ -56,4 +79,7 @@ function drawTrajectory() {
 document.getElementById("drawButton").addEventListener("click", drawTrajectory);
 document.getElementById("clearButton").addEventListener("click", () => {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+  drawGrid();
 });
+
+drawGrid();
