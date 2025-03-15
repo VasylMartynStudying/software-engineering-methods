@@ -12,7 +12,11 @@ function drawGrid() {
     canvasContext.moveTo(x, 0);
     canvasContext.lineTo(x, canvas.height);
     canvasContext.stroke();
-    canvasContext.fillText(x, x + 2, canvas.height - 2);
+    if (x != canvas.width - 50) {
+      canvasContext.fillText(x, x + 2, canvas.height - 2);
+    } else {
+      canvasContext.fillText("X, м", x + 2, canvas.height - 2);
+    }
   }
 
   for (let y = 0; y <= canvas.height; y += 50) {
@@ -22,6 +26,7 @@ function drawGrid() {
     canvasContext.stroke();
     canvasContext.fillText(canvas.height - y, 2, y - 2);
   }
+  canvasContext.fillText("Y, м", 2, 15);
 }
 
 function drawTrajectory() {
@@ -44,7 +49,7 @@ function drawTrajectory() {
 
   const startX = x0;
   const startY = canvas.height - y0;
-  
+
   canvasContext.moveTo(startX, startY);
 
   let t = 0;
@@ -64,7 +69,8 @@ function drawTrajectory() {
     canvasContext.arc(canvasX, canvasY, 2, 0, 2 * Math.PI);
     canvasContext.fill();
 
-    if (canvasX < 0 ||
+    if (
+      canvasX < 0 ||
       canvasX > canvas.width ||
       canvasY < 0 ||
       canvasY > canvas.height
