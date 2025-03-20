@@ -33,7 +33,7 @@ function drawAxes() {
     canvasContext.textAlign = "center";
     canvasContext.fillText(x, px, margin.top + innerHeight + 20);
   }
-  canvasContext.fillText("Відстань (м)", innerWidth + 20, height - 5);
+  canvasContext.fillText("X, М", innerWidth + 20, height - 5);
 
   canvasContext.beginPath();
   canvasContext.moveTo(margin.left, margin.top);
@@ -53,7 +53,7 @@ function drawAxes() {
   canvasContext.save();
   canvasContext.translate(15, margin.top);
   canvasContext.rotate(-Math.PI / 2);
-  canvasContext.fillText("Висота (м)", 0, 0);
+  canvasContext.fillText("Y, М", 0, 0);
   canvasContext.restore();
 }
 

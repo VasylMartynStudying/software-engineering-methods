@@ -29,7 +29,7 @@ axisXGroup
   .attr("y", 35)
   .attr("fill", "#000")
   .attr("text-anchor", "middle")
-  .text("Відстань (м)");
+  .text("X, М");
 
 axisYGroup
   .append("text")
@@ -38,7 +38,7 @@ axisYGroup
   .attr("text-anchor", "middle")
   .attr("fill", "#000")
   .attr("transform", "rotate(-90)")
-  .text("Висота (м)");
+  .text("Y, М");
 
 const lineGenerator = d3
   .line()
