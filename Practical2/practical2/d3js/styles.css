@@ -1,0 +1,39 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  display: flex;
+}
+.inputs-container {
+  border: 2px solid #ccc;
+	height: 100%;
+	margin: 0 10px;
+}
+.inputs-container input {
+  margin: 0 10px;
+  padding: 5px;
+  width: 40px;
+}
+.inputs-container button {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+#trajectorySvg {
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.line {
+  fill: none;
+  stroke: blue;
+  stroke-width: 2px;
+}
