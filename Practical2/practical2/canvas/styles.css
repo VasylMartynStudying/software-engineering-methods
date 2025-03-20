@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 20px;
 }
 h1 {
@@ -8,21 +8,32 @@ h1 {
 .container {
   display: flex;
 }
-.inputs-container {
+.input-output-container {
+	display: flex;
+	flex-direction: column;
   border: 2px solid #ccc;
-	height: 100%;
-	margin: 0 10px;
+  margin: 0 10px;
+	padding: 0 10px;
 }
-.inputs-container input {
+.input-output-container input {
   margin: 0 10px;
   padding: 5px;
   width: 40px;
 }
-.inputs-container button {
+.input-output-container button {
   padding: 3px 8px;
+	width: 25%;
   font-size: 12px;
+}
+.inputs-outputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 #trajectorySvg {
   border: 2px solid #ccc;
   background-color: #f9f9f9;
+}
+.hidden {
+	display: none;
 }

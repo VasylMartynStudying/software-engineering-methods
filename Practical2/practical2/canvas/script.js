@@ -82,6 +82,21 @@ function updateChart() {
 
   const tTotal = (2 * v0 * Math.sin(theta)) / g;
 
+  const range = v0 * Math.cos(theta) * tTotal;
+
+  const maxHeight = (v0 * Math.sin(theta)) ** 2 / (2 * g);
+
+  document.getElementById("result-container").classList.remove("hidden");
+  document.getElementById(
+    "flightTime"
+  ).textContent = `Час польоту: ${tTotal.toFixed(2)} с`;
+  document.getElementById(
+    "range"
+  ).textContent = `Дальність польоту: ${range.toFixed(2)} м`;
+  document.getElementById(
+    "maxHeight"
+  ).textContent = `Максимальна висота підняття: ${maxHeight.toFixed(2)} м`;
+
   const numPoints = 50;
   const dt = tTotal / numPoints;
   const data = [];

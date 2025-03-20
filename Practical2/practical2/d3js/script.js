@@ -4,7 +4,7 @@ const height = Number.parseFloat(svg.attr("height"));
 
 const margin = { top: 20, right: 20, bottom: 40, left: 50 };
 const innerWidth = width - margin.left - margin.right;
-const innerHeight = height - margin.bottom - margin.top; 
+const innerHeight = height - margin.bottom - margin.top;
 
 const svgElemGroup = svg
   .append("g")
@@ -55,6 +55,21 @@ function updateChart() {
   const theta = (angle * Math.PI) / 180;
 
   const tTotal = (2 * v0 * Math.sin(theta)) / g;
+
+  const range = v0 * Math.cos(theta) * tTotal;
+
+  const maxHeight = (v0 * Math.sin(theta)) ** 2 / (2 * g);
+
+  document.getElementById("result-container").classList.remove("hidden");
+  document.getElementById(
+    "flightTime"
+  ).textContent = `Час польоту: ${tTotal.toFixed(2)} с`;
+  document.getElementById(
+    "range"
+  ).textContent = `Дальність польоту: ${range.toFixed(2)} м`;
+  document.getElementById(
+    "maxHeight"
+  ).textContent = `Максимальна висота підняття: ${maxHeight.toFixed(2)} м`;
 
   const numPoints = 50;
   const dt = tTotal / numPoints;
