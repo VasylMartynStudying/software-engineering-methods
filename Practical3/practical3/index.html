@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Моделювання задачі "Рюкзак"</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Моделювання задачі "Рюкзак" - варіант №21</h1>
+		</header>
+
+		<main>
+			<div class="input-container">
+				<div class="input-group">
+					<label>Кількість предметів (n): </label>
+					<input type="number" id="itemCount" value="10" min="1" />
+				</div>
+
+				<div class="input-group">
+					<label>Макс. вага (W): </label>
+					<input type="number" id="maxWeight" value="17" />
+				</div>
+
+				<div class="input-group">
+					<label>Ваги предметів (через кому): </label>
+					<input type="text" id="weights" value="2,3,4,7,6,7,2,5,5,6" />
+				</div>
+
+				<div class="input-group">
+					<label>Цінності (через кому): </label>
+					<input type="text" id="values" value="14,3,14,11,4,12,9,11,9,15" />
+				</div>
+
+				<button onclick="solveKnapsack()">Розв'язати</button>
+			</div>
+
+			<div id="result"></div>
+			<div id="error" class="error"></div>
+			<div id="dpTable"></div>
+		</main>
+		<script src="script.js"></script>
+	</body>
+
+</html>
